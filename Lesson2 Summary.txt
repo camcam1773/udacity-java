@@ -1,0 +1,74 @@
+Lesson 2 Summary
+
+Wow, we learned a whole ton of information in Lesson 2! Let's review what we just learned.
+
+How to construct a new objects that require constructors in one line:
+A. For objects that require constructors (e.g. Picture)
+
+Picture rocket = new Picture(“mariner4.jpg”);
+
+    Picture: Here we’re telling Java the type of the object we want to construct.
+    rocket: Here we’re naming the object.
+    new: Here we’re adding a keyword that tells Java to make a new object.
+    Picture: Here we’re calling the constructor for the Picture class. What this means is that in the Picture class there is a chunk of code that reads: “public Picture(...) {...}”, and contains information within the brackets about how to actually construct the Picture class from the argument passed in between the parentheses. Don’t worry if this isn’t 100% clear right now; we’ll get plenty of practice with this throughout the rest of the course!
+    "mariner4.jpg": This is just the necessary argument passed into the Picture constructor.
+
+B. For objects that do NOT require constructors (e.g. String) or non-objects (e.g. int):
+
+int number = 6;
+String name = “Dan”;
+
+    int/String: The type of the object (or non-object) we’re constructing.
+    number/name: The name of the object (or non-object)
+    6/"Dan": The value of the object (or non-object)
+
+What do we mean when we say integers are not “objects”? Read on to find out.
+Calling methods on “objects”
+
+For either mutator or accessor methods, use the syntax “.” to call the method named Method on the object named Object.
+
+Now, what do we mean when we say “integers are not objects”? By definition, objects are “things you can call methods on”, and there are no methods you can call on an integer. For example, after writing
+
+int number = 6;
+
+We cannot write things like:
+
+number.multiply(4);
+number.add(3);
+
+Instead, we write:
+
+number = number * 4;
+number = number + 3;
+
+Variables and references
+
+A common procedure in Java is to construct an object, assign that object “equal to” another object, and then modify the first object. However, if you then change the first object with the mutator object, it changes the second object as well, counterintuitively.
+
+Example:
+
+For objects that are constructed (e.g. Rectangle) and have mutator methods called on them:
+
+rectangle rect1 = new Rectangle(0,0,50,50); //Constructs the Rectangle
+rect2 = rect1; // ”rect1” and “rect2” now “point to” the same Rectangle object
+rect1.translate(10); //the object that both “rect1” and “rect2” both refer to is now translated by 10 units.
+
+This produces:
+
+rect1.getX();
+10 (int)
+rect2.getX();
+10 (int)
+
+Key Methods from Lesson 2:
+
+How to draw an object, with or without “filling” it, and how to set the color of an object:
+
+obj.draw(); //draws the object called “obj”
+obj.fill(); //draws the object called “obj”, filled in
+obj.setColor(new Color(redValue, greenValue, blueValue));  // sets the color of “obj” to the color defined by the red-green-blue combination defined in the constructor
+
+Setting the color could also be done on two lines as:
+
+Color color1 = new Color(redValue, greenValue, blueValue);
+obj.setColor(color1);
